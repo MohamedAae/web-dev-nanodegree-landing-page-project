@@ -1,0 +1,185 @@
+/*
+ *
+ * CSS written based on SMACSS architecture.
+ * To learn more, visit: http://smacss.com/
+ *
+ * For simplicity, no reset or normalize is added.
+ * To learn more, visit: https://css-tricks.com/reboot-resets-reasoning/
+ *
+*/
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
+
+/* ---- Base Rules ---- */
+body {
+    background: #fbfbfd;
+    margin: 0;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    color: #495464;
+}
+
+
+/* Typeography General*/
+h1 {
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-size: 3em;
+    margin: 2em 1rem;
+}
+
+@media only screen and (min-width: 35em) {
+    h1 {
+        font-size: 7em;
+        margin: 2em 4rem 1em;
+    }
+}
+
+h2 {
+    padding-bottom: 1em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-size: 3em;
+    color: #495464;
+}
+
+p {
+    line-height: 1.6em;
+    color: #495464;
+}
+
+/* ---- Layout Rules ---- */
+.main-hero {
+    min-height: 40vh;
+    padding-top: 3em;
+}
+
+section {
+    display: table;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    opacity: 0.25;
+}
+
+
+/* ---- Module Rules ---- */
+
+/* Navigation Styles*/
+.navbar__menu ul {
+    max-width: 50em;
+    margin: 0 auto;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5em 0;
+    text-align: right;
+    font-size: 1em;
+}
+
+.navbar__menu li {
+    border-right: 2px solid rgba(0, 0, 0, 0.15);
+}
+
+.navbar__menu li:last-child {
+    border: none;
+}
+
+.navbar__menu a {
+    display: inline-block;
+    padding: 0 1em;
+    color: #495464;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    opacity: 0.25;
+}
+
+.navbar__menu a:hover {
+    opacity: 1;
+}
+
+.navbar__menu a.active {
+    font-weight: bold;
+    opacity: 1;
+}
+
+.navbar__menu .menu__link {
+    display: block;
+    padding: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+}
+
+.navbar__menu .menu__link:hover {
+    background: #333;
+    color: #fff;
+    transition: ease 0.3s all;
+}
+
+/* Header Styles */
+.page__header {
+    background: #f5f5f7;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+}
+
+/* Back to Top Button*/
+.scroll__top {
+    z-index: 5;
+    cursor: pointer;
+    outline: none;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    background-color: #fbfbfd;
+    color: #495464;
+    border: 1px solid #d9d9df;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    opacity: 0.85;
+    transition: opacity 0.3s ease-in-out;
+    -webkit-transition: opacity 0.3s ease-in-out;
+}
+
+.scroll__top:hover,
+.scroll__top:focus {
+    color: #000;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    -webkit-transition: opacity 0.3s ease-in-out;
+}
+
+
+/* ---- Theme Rules ---- */
+/* Landing Container Styles */
+.landing__container {
+    display: table-cell;
+    vertical-align: middle;
+    margin: 0 auto;
+    padding: 1em;
+    text-align: left;
+}
+
+@media only screen and (min-width: 35em) {
+    .landing__container {
+        max-width: 50em;
+        padding: 4em;
+    }
+}
+
+/* ---- Theme State Rules ---- */
+/* Section Active Styles */
+/* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
+section.active-section {
+    background-color: #f2f2f2;
+    opacity: 1;
+}
+
+section.active-section .landing__container::after {
+    opacity: 1;
+    animation: rotate 5s linear 0s infinite forwards reverse;
+}
